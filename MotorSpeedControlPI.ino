@@ -28,8 +28,6 @@ void setup() {
 
 void loop() {
 
-
-
   long time = micros();
 
   if (time - prevTime >= 10000) { 
@@ -83,7 +81,6 @@ void loop() {
     if (pwr<0){
       pwr=0;
     }
-
 
     setMotor(dir,PWM,pwr,IN1,IN2);
 
