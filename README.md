@@ -14,28 +14,28 @@ Components Used:
 - Elegoo Uno R3
 - Breadboard
 
-**Wiring:**
-All encoder wires were plugged into breadboard as they did not fit the motor driver and elegoo securely enough
+**Wiring:**  
+All encoder wires were plugged into the breadboard because they did not fit securely enough into the motor driver and Uno.
 
 **Motor**
-White Motor Wire --> L298N OUT1 
-Red Motor Wire --> L298N OUT2 
+- White Motor Wire → L298N OUT1
+- Red Motor Wire → L298N OUT2
 
 **Encoder**
-Yellow Encoder Wire --> Arduino D3
-Green Encoder Wire --> Arduino D2
-Blue Encoder Wire --> Arduino 5V
-Black Encoder Wire --> Arduino GND
+- Yellow Encoder Wire → Uno D3
+- Green Encoder Wire → Uno D2
+- Blue Encoder Wire → Uno 5V
+- Black Encoder Wire → Uno GND
 
 **Motor Driver**
-L298N ENA --> Arduino D5
-L298N IN1 --> Arduino D6
-L298N IN2 --> Arduino D7
-L298N GND --> Arduino GND
+- L298N ENA → Uno D5
+- L298N IN1 → Uno D6
+- L298N IN2 → Uno D7
+- L298N GND → Uno GND
 
 **Power**
-Negative Power Source --> L298N GND
-Positive Power Source --> +12 V
+- Negative Power Source → L298N GND
+- Positive Power Source → L298N +12 V
 
 ## System Design
 The encoder generates pulses as the motor rotates, the Arduino counts these pulses and calculates the motor speed in RPM. A low-pass filter reduces noise in the RPM measurement and the measured RPM is compared to the target RPM to calculate speed error.
@@ -91,8 +91,8 @@ At a target of 100 RPM, the measured speed remained between 99.33 and 101.29 RPM
 
 ## PI vs PID Controller
 A derivative term with Kd=0.01 was tested under the same 100 RPM step conditions but produced little visible improvement in the transient response so PI control was retained for the final controller
-PI:<img width="1208" height="530" alt="image" src="https://github.com/user-attachments/assets/7556c3d8-792c-4524-9f4e-b8164b82c8a8" />
-PID: <img width="966" height="433" alt="image" src="https://github.com/user-attachments/assets/07ceb39a-ebed-435b-8ce3-358e501d88b2" />
+- PI:<img width="1208" height="530" alt="image" src="https://github.com/user-attachments/assets/7556c3d8-792c-4524-9f4e-b8164b82c8a8" />
+- PID: <img width="966" height="433" alt="image" src="https://github.com/user-attachments/assets/07ceb39a-ebed-435b-8ce3-358e501d88b2" />
 
 ## Limitations
 One encoder channel was not functioning reliably, so motor speed was measured using a single encoder channel. This was sufficient for speed measurement in a fixed direction, but prevented full quadrature encoding and reliable direction detection from the encoder
