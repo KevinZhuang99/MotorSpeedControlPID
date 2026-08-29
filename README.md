@@ -2,7 +2,7 @@
 Arduino-based PI speed controller using encoder feedback, PWM motor control, fixed-period sampling, and low-pass filtering.
 
 ## Project Overview
-This project implements closed-loop speed control of a 12 V DC gear motor using Elegoo Uno, encoder feedback, and an L298N motor driver. Motor speed is measured from encoder pulses, filtered using a low-pass filter and regulated with a PI controller. The system was tested across multiple speed setpoints, including a 0-100 RPM step response.
+This project implements closed-loop speed control of a 12 V DC gear motor using an Elegoo Uno, encoder feedback, and an L298N motor driver. Motor speed is measured from encoder pulses, filtered using a low-pass filter and regulated with a PI controller. The system was tested across multiple speed setpoints, including a 0-100 RPM step response.
 <img width="1080" height="1440" alt="IMG_2239" src="https://github.com/user-attachments/assets/291cd94d-8cc9-4418-88f5-79a3528a38e0" />
 
 ## Hardware
@@ -54,7 +54,7 @@ The measured encoder velocity is converted to RPM using 425 encoder counts per o
 A low-pass filter is then applied to reduce rapid fluctuations in the measured speed before it is used by the controller:
 
 ```cpp
- // low-pass filter (25hz cutoff)
+ // low-pass filter (2.5hz cutoff)
 v1Filt = 0.854*v1Filt + 0.0728*v1 + 0.0728*v1Prev;
 v1Prev = v1;
 ```
