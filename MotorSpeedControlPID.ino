@@ -52,7 +52,7 @@ void loop() {
     // convert encoder counts to rpm
     float v1 = velocity / (425) * 60;  
 
-    // low-pass filter (25hz cutoff)
+    // low-pass filter (2.5hz cutoff)
     v1Filt = 0.854*v1Filt + 0.0728*v1 + 0.0728*v1Prev;
     v1Prev = v1;
 
